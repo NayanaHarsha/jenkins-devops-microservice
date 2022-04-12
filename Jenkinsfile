@@ -1,50 +1,15 @@
-//scripted file
-// node {
-// 	stage('Build') {
-// 		echo "Build"
-// 	}
-// 	stage('Test') {
-// 		echo "Test"
-// 	}
-//   stage('Integration Tests') {
-// 		echo "Test"
-// 	}
-// }
-
-//Declarative pilelie
-
 pipeline {
-	agent {
-		agent {
-        docker { image 'node:16.13.1-alpine' }
-    }
-	stages {
-		stage('Build') {
-			steps {
-				echo "node --version"
-				echo "Build"
+		agent { 
+			docker {
+				image "node:8-alpine"
 			}
-		}
-		stage('Test') {
-			steps {
-				echo "Test"
 			}
+		stages {
+				stage('Build') {
+						steps {
+								echo "Hello World"
+								echo "node version: ${node.version}"
+						}
+				}
 		}
-		stage('Integration Tests') {
-			steps {
-				echo "Test"
-			}
-		}
-	}
-	post {
-		always {
-			echo "Always run successfully"
-		}
-		success {
-			echo "Always run on success"
-		}
-		failure {
-			echo "Always run on failure"
-		}
-	}
 }
