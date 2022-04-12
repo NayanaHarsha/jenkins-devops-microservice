@@ -13,36 +13,35 @@
 
 //Declarative pilelie
 
-pipeline{
-	agent any
-	stages{
-		stage('Build'){
-			steps{
-					echo "Build"
+pipeline {
+	agent { docker {image 'maven:3.6.3'} }
+	stages {
+		stage('Build') {
+			steps {
+				echo "mvn --version"
+				echo "Build"
 			}
-		
 		}
-			stage('Test'){
-				steps{
-			     echo "test"
-				}
+		stage('Test') {
+			steps {
+				echo "Test"
+			}
 		}
-			stage('Integration Tests'){
-				steps{
-			     echo "Integration test"
-				}
+		stage('Integration Tests') {
+			steps {
+				echo "Test"
+			}
 		}
 	}
-	post{
-		always{
-			echo "I m awesome,I ran always"
+	post {
+		always {
+			echo "Always run successfully"
 		}
-		success{
-			echo " I m awesome,ran successfully"
+		success {
+			echo "Always run on success"
 		}
-		failure{
-			echo 'I m awesome,ran failed'
+		failure {
+			echo "Always run on failure"
 		}
 	}
 }
-
