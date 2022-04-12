@@ -32,6 +32,16 @@ pipeline{
 			     echo "Integration test"
 				}
 		}
+	}post{
+		always{
+			echo "I m awesome,I ran always"
+		}
+		success{
+			echo " I m awesome,ran successfully"
+		}
+		failure{
+			echo 'I m awesome,ran failed'
+		}
 	}
 }
 
