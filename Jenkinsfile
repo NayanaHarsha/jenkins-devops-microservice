@@ -8,7 +8,7 @@ stages{
 	}
 	stage('Qa'){
 		steps{
-			echo maven --version
+			echo 'mvn --version'
 		}
 	}
 }
