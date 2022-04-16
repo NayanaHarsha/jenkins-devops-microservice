@@ -1,5 +1,5 @@
 pipeline {
-	agent {docker {image 'maven:3.6.3'}}
+	agent any{
 stages{
 	stage('Build'){
 		steps{
@@ -11,5 +11,11 @@ stages{
 			echo 'mvn --version'
 		}
 	}
+	stage('prod'){
+		steps{
+			echo 'hello-world'
+		}
+	}
+}
 }
 }
