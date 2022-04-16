@@ -8,7 +8,7 @@ stages{
 	}
 	stage('Qa'){
 		steps{
-			echo 'mvn --version'
+			echo 'hello'
 		}
 	}
 	stage('prod'){
