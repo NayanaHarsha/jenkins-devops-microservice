@@ -9,6 +9,9 @@ stages{
 	stage('Qa'){
 		steps{
 			echo 'hello'
+			script {
+				def test = 2 + 2 > 3 ? 'cool' :' notcool'
+			}
 		}
 	}
 	stage('prod'){
